@@ -6,10 +6,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CountriesComponent } from './components/countries/countries.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    CountriesComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
