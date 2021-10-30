@@ -1,7 +1,8 @@
 <div class="countries-container">
     <h2>Please select the countries from the list below</h2>
-    <nz-select [nzOpen]="true" [nzAllowClear]="true" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" nzPlaceHolder="Please select" [ngModel]="listOfSelectedCountries"
-        [ngModel]="listOfSelectedCountries" (ngModelChange)="onSelectedCountryChange($event)">
+    <nz-select [nzOpen]="true" [nzAllowClear]="true" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" nzPlaceHolder="Type to find a country"
+        (nzFocus)="onSelectFocus()" (nzBlur)="onSelectBlur()" [ngModel]="listOfSelectedCountries" [ngModel]="listOfSelectedCountries"
+        (ngModelChange)="onSelectedCountryChange($event)">
         <nz-option *ngFor="let item of listOfCountries" [nzLabel]="item.name" [nzValue]="item"></nz-option>
     </nz-select>
     <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>

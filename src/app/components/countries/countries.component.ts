@@ -15,11 +15,11 @@ export class CountriesComponent implements OnInit {
     private subscription: Subscription;
     public listOfCountries: Country[] = [];
     public listOfSelectedCountries: Country[] = [];
+    // TODO: Change this to 30000 ...
+    private source = interval(30000);
 
     constructor(private httpService: HttpService, private appStateService: AppStateService) {
-        // TODO: Change this to 30000 ...
-        const source = interval(10000);
-        this.subscription = source.subscribe(val => {
+        this.subscription = this.source.subscribe(val => {
             this.fetchListOfCountries();
         });
     }
@@ -34,7 +34,7 @@ export class CountriesComponent implements OnInit {
         });
     }
 
-    onSelectedCountryChange(countries: Country[]) {
+    public onSelectedCountryChange(countries: Country[]) {
         this.appStateService.updateSelectedCountries(countries);
     }
 
@@ -48,6 +48,15 @@ export class CountriesComponent implements OnInit {
         })
     }
 
+    public onSelectFocus(): void {
+        // this.subscription.unsubscribe();
+    }
+
+    public onSelectBlur(): void {
+        // this.subscription = this.source.subscribe(val => {
+        //     this.fetchListOfCountries();
+        // });
+    }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
