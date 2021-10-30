@@ -33,3 +33,15 @@
         animation: spinner .8s linear infinite;
     }
 }
+
+
+@media screen and (max-width: 600px) {
+    .results-container {
+        margin: 0 0 0 1vw;
+
+        .mat-raised-button {
+            margin: 0 0 5vh 0;
+            width: 90vw;
+        }
+    }
+}

@@ -5,3 +5,14 @@
         margin: 0 0 5vh 0;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .countries-container {
+        margin: 0 0 0 1vw;
+
+        .ant-select{
+            width: 90vw;
+            margin: 0 0 5vh 0;
+        }
+    }
+}
