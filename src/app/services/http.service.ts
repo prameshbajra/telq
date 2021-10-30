@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Country } from '../models/country';
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class HttpService {
 
-    private BACKEND_URL = "https://https://interview.telqtele.com/";
+    private BACKEND_URL = "https://interview.telqtele.com/";
 
     constructor(private http: HttpClient) { }
 
