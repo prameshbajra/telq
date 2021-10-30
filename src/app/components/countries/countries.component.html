@@ -1,5 +1,8 @@
-<p>Please select the countries from the list below</p>
-<nz-select [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple"  nzPlaceHolder="Please select" [(ngModel)]="listOfSelectedCountries">
-    <nz-option *ngFor="let item of listOfCountries" [nzLabel]="item.name" [nzValue]="item"></nz-option>
-</nz-select>
-<ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
+<div>
+    <p>Please select the countries from the list below</p>
+    <nz-select [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" nzPlaceHolder="Please select" [ngModel]="listOfSelectedCountries"
+        [ngModel]="listOfSelectedCountries" (ngModelChange)="onSelectedCountryChange($event)">
+        <nz-option *ngFor="let item of listOfCountries" [nzLabel]="item.name" [nzValue]="item"></nz-option>
+    </nz-select>
+    <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
+</div>
