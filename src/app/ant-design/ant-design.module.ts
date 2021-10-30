@@ -8,6 +8,9 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+
 
 
 @NgModule({
@@ -21,7 +24,9 @@ import { NzTableModule } from 'ng-zorro-antd/table';
         NzLayoutModule,
         NzSelectModule,
         NzTableModule,
-        NzSpinModule
+        NzSpinModule,
+        NzMessageModule,
+        NzNotificationModule
     ],
     exports: [
         NzButtonModule,
@@ -31,7 +36,9 @@ import { NzTableModule } from 'ng-zorro-antd/table';
         NzLayoutModule,
         NzSelectModule,
         NzTableModule,
-        NzSpinModule
+        NzSpinModule,
+        NzMessageModule,
+        NzNotificationModule
     ]
 })
 export class AntDesignModule { }
