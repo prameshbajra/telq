@@ -10,6 +10,11 @@
         overflow-y: scroll;
         width: 40vw;
 
+        .empty-message {
+            margin: 10vh;
+            text-align: center;
+        }
+
         mat-header-cell, mat-cell {
             justify-content: space-evenly;
         }

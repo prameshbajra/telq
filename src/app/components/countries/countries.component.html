@@ -2,6 +2,11 @@
     <h2>Please select the countries from the list below</h2>
     <div class="countries-table-container mat-elevation-z0">
         <mat-table #table [dataSource]="listOfCountries">
+            <div class = "empty-message" *matNoDataRow>
+                <h3>
+                    No data
+                </h3>
+            </div>
             <ng-container matColumnDef="checked">
                 <mat-header-cell *matHeaderCellDef></mat-header-cell>
                 <mat-cell *matCellDef="let element">
