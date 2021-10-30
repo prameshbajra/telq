@@ -2,19 +2,20 @@
     <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading" (click)="onTestClick()">Send Tests</button>
     <div>
         <!-- TODO: Page size to be made resonable here ... -->
-        <nz-table #countryTable [nzData]="countryResults" [nzShowPagination]="false" [nzBordered]="true" [nzScroll]="{ y: '60vh', x:'40vw' }">
+        <nz-table #countryTable [nzData]="countryResults" [nzShowPagination]="false" [nzFrontPagination]="false" [nzBordered]="true"
+            [nzScroll]="{ y: '60vh', x:'40vw' }">
             <thead>
-              <tr>
-                <th>Country Name</th>
-                <th>Status</th>
-              </tr>
+                <tr>
+                    <th>Country Name</th>
+                    <th>Status</th>
+                </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of countryTable.data">
-                <td>{{data.countryName}}</td>
-                <td [ngClass]="getClass(data.testStatus)">{{data.testStatus}}</td>
-              </tr>
+                <tr *ngFor="let data of countryTable.data">
+                    <td>{{data.countryName}}</td>
+                    <td [ngClass]="getClass(data.testStatus)">{{data.testStatus}}</td>
+                </tr>
             </tbody>
-          </nz-table>
+        </nz-table>
     </div>
 </div>

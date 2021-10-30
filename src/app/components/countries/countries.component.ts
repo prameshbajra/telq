@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { Country } from 'src/app/models/country';
 import { AppStateService } from 'src/app/services/app-state.service';
@@ -15,7 +15,6 @@ export class CountriesComponent implements OnInit {
     private subscription: Subscription;
     public listOfCountries: Country[] = [];
     public listOfSelectedCountries: Country[] = [];
-    // TODO: Change this to 30000 ...
     private source = interval(30000);
 
     constructor(private httpService: HttpService, private appStateService: AppStateService) {
