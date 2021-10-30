@@ -1,8 +1,8 @@
-<div>
-    <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading" (click)="onTestClick()">Test</button>
+<div class="results-container">
+    <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading" (click)="onTestClick()">Send Tests</button>
     <div>
         <!-- TODO: Page size to be made resonable here ... -->
-        <nz-table #countryTable [nzData]="countryResults" [nzPageSize]="3">
+        <nz-table #countryTable [nzData]="countryResults" [nzShowPagination]="false" [nzBordered]="true" [nzScroll]="{ y: '60vh', x:'40vw' }">
             <thead>
               <tr>
                 <th>Country Name</th>
