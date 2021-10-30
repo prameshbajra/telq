@@ -60,6 +60,14 @@ export class CountriesComponent implements OnInit {
         this.appStateService.updateSelectedCountries(this.listOfSelectedCountries);
     }
 
+    public getClass(row: Country): string {
+        return row.checked ? "colored" : "";
+    }
+
+    public onRowClicked(row: Country): void {
+        this.onCheckBoxClicked(row);
+    }
+
     private createMessage(type: string, message: string): void {
         this.message.create(type, message);
     }
@@ -67,6 +75,4 @@ export class CountriesComponent implements OnInit {
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
-
-
 }
