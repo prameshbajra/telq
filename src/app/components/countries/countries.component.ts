@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { interval, Subscription } from 'rxjs';
 import { Country } from 'src/app/models/country';
@@ -50,7 +51,8 @@ export class CountriesComponent implements OnInit {
         })
     }
 
-    public onCheckBoxClicked(element: Country): void {
+    public onCheckBoxChanged(event: any, element: Country): void {
+        event.preventDefault();
         element.checked = !element.checked;
         if (element.checked) {
             this.listOfSelectedCountries.push(element);
@@ -64,8 +66,8 @@ export class CountriesComponent implements OnInit {
         return row.checked ? "colored" : "";
     }
 
-    public onRowClicked(row: Country): void {
-        this.onCheckBoxClicked(row);
+    public onRowClicked(event: Event, row: Country): void {
+        this.onCheckBoxChanged(event, row);
     }
 
     private createMessage(type: string, message: string): void {
