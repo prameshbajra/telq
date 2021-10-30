@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponseCountry } from 'src/app/models/responseCountry';
 
 @Component({
     selector: 'app-results',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-    loading: boolean = false;
+    public loading: boolean = false;
+    public countryResults: ResponseCountry[];
 
-    constructor() { }
+    constructor() {
+        this.countryResults = [
+            {
+                "countryName": "Nepal",
+                "testStatus": "Failed"
+            },
+            {
+                "countryName": "India",
+                "testStatus": "Failed"
+            },
+            {
+                "countryName": "Germany",
+                "testStatus": "Successful"
+            }
+        ];
+    }
 
     ngOnInit(): void {
     }
