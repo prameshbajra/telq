@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { interval, Subscription } from 'rxjs';
 import { Country } from 'src/app/models/country';
 import { AppStateService } from 'src/app/services/app-state.service';
@@ -17,7 +18,7 @@ export class CountriesComponent implements OnInit {
     public listOfSelectedCountries: Country[] = [];
     private source = interval(30000);
 
-    constructor(private httpService: HttpService, private appStateService: AppStateService) {
+    constructor(private httpService: HttpService, private appStateService: AppStateService, private message: NzMessageService) {
         this.subscription = this.source.subscribe(val => {
             this.fetchListOfCountries();
         });
@@ -41,9 +42,9 @@ export class CountriesComponent implements OnInit {
         this.httpService.getCountriesList().subscribe((response) => {
             this.appStateService.updateCountries(response);
         }, (error) => {
-            this.appStateService.updateCountries([]);
             console.error(error);
-            // TODO: Handle this properly ...
+            this.appStateService.updateCountries([]);
+            this.createMessage("error", "There was a problem getting data from server.");
         })
     }
 
@@ -57,8 +58,13 @@ export class CountriesComponent implements OnInit {
         // });
     }
 
+    private createMessage(type: string, message: string): void {
+        this.message.create(type, message);
+    }
+
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
+
 
 }

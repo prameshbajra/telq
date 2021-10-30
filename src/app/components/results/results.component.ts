@@ -27,7 +27,7 @@ export class ResultsComponent implements OnInit {
             this.selectedCountries = response;
         }, (error) => {
             console.error(error);
-            // TODO: Handle this error ..
+            this.createMessage("error", "There was a problem during fetching data.");
         })
     }
 
@@ -49,13 +49,12 @@ export class ResultsComponent implements OnInit {
                 console.error(error);
                 this.countryResults = [];
                 this.loading = false;
-                // TODO: Handle error here ...
+                this.createMessage("error", "There was a problem in fetching the results.")
             }));
         }
     }
 
-
-    createMessage(type: string, message: string): void {
+    private createMessage(type: string, message: string): void {
         this.message.create(type, message);
     }
 
