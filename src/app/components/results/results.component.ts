@@ -29,6 +29,10 @@ export class ResultsComponent implements OnInit {
         })
     }
 
+    getClass(value: string): string {
+        return value.toLowerCase() === "failed" ? "red" : "green";
+    }
+
     onTestClick(): void {
         const selectedCountriesRequestBody: RequestCountry[] = this.selectedCountries.map(country => ({ "countryName": country.name }));
         this.httpService.sentTests(selectedCountriesRequestBody).subscribe(response => {

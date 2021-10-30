@@ -12,7 +12,7 @@
             <tbody>
               <tr *ngFor="let data of countryTable.data">
                 <td>{{data.countryName}}</td>
-                <td>{{data.testStatus}}</td>
+                <td [ngClass]="getClass(data.testStatus)">{{data.testStatus}}</td>
               </tr>
             </tbody>
           </nz-table>
