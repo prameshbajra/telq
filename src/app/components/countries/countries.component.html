@@ -1,6 +1,6 @@
 <div class="countries-container">
     <h2>Please select the countries from the list below</h2>
-    <nz-select [nzAutoFocus]="true" [nzOpen]="true" [nzAllowClear]="true" nzMode="multiple" nzPlaceHolder="Type to find a country"
+    <nz-select autofocus [nzAutoFocus]="true" [nzOpen]="true" [nzAllowClear]="true" nzMode="multiple" nzPlaceHolder="Type to find a country"
         (nzFocus)="onSelectFocus()" (nzBlur)="onSelectBlur()" [ngModel]="listOfSelectedCountries"
         (ngModelChange)="onSelectedCountryChange($event)">
         <nz-option *ngFor="let item of listOfCountries" [nzLabel]="item.name" [nzValue]="item"></nz-option>
