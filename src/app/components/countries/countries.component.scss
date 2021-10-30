@@ -4,16 +4,22 @@
     display: flex;
     flex-direction: column;
 
-    .ant-select{
+    .countries-table-container {
+        border: 1px solid lightgray;
+        height: 70vh;
+        overflow-y: scroll;
         width: 40vw;
-        margin: 0 0 5vh 0;
+
+        mat-header-cell, mat-cell {
+            justify-content: space-evenly;
+        }
     }
 }
 
 @media screen and (max-width: 600px) {
-    .countries-container {
-
-        .ant-select{
+    .countries-container{
+        
+        .countries-table-container {
             width: 90vw;
         }
     }

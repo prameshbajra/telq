@@ -17,9 +17,13 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { NzConfig, NZ_CONFIG } from 'ng-zorro-antd/core/config';
 
 registerLocaleData(en);
 
+const ngZorroConfig: NzConfig = {
+    message: { nzMaxStack: 2 }
+};
 
 @NgModule({
     declarations: [
@@ -42,7 +46,7 @@ registerLocaleData(en);
             registrationStrategy: 'registerWhenStable:30000'
         })
     ],
-    providers: [{ provide: NZ_I18N, useValue: en_US }],
+    providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_CONFIG, useValue: ngZorroConfig }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

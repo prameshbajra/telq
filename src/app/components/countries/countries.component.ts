@@ -27,15 +27,17 @@ export class CountriesComponent implements OnInit {
     ngOnInit(): void {
         this.fetchListOfCountries();
         this.appStateService.getListOfCountries$.subscribe(response => {
+            const selectedNames = this.listOfSelectedCountries.map(country => country.name);
+            response.forEach(country => {
+                if (selectedNames.includes(country.name)) {
+                    country.checked = true;
+                }
+            });
             this.listOfCountries = response;
+            const totalCountryNames = this.listOfCountries.map(country => country.name);
+            this.listOfSelectedCountries = this.listOfSelectedCountries.filter(country => totalCountryNames.includes(country.name));
+            this.appStateService.updateSelectedCountries(this.listOfSelectedCountries);
         });
-        this.appStateService.getListOfSelectedCountries$.subscribe(response => {
-            this.listOfSelectedCountries = response;
-        });
-    }
-
-    public onSelectedCountryChange(countries: Country[]) {
-        this.appStateService.updateSelectedCountries(countries);
     }
 
     private fetchListOfCountries(): void {
@@ -48,14 +50,14 @@ export class CountriesComponent implements OnInit {
         })
     }
 
-    public onSelectFocus(): void {
-        // this.subscription.unsubscribe();
-    }
-
-    public onSelectBlur(): void {
-        // this.subscription = this.source.subscribe(val => {
-        //     this.fetchListOfCountries();
-        // });
+    public onCheckBoxClicked(element: Country): void {
+        element.checked = !element.checked;
+        if (element.checked) {
+            this.listOfSelectedCountries.push(element);
+        } else {
+            this.listOfSelectedCountries = this.listOfSelectedCountries.filter(country => country.name !== element.name);
+        }
+        this.appStateService.updateSelectedCountries(this.listOfSelectedCountries);
     }
 
     private createMessage(type: string, message: string): void {
