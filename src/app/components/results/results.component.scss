@@ -4,8 +4,16 @@
 
 .results-container{
 
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
     .mat-raised-button {
         margin: 0 0 5vh 0;
+        width: 40vw;
+    }
+
+    .results-table-container{
         width: 40vw;
     }
 
@@ -37,10 +45,12 @@
 
 @media screen and (max-width: 600px) {
     .results-container {
-        margin: 0 0 0 1vw;
 
         .mat-raised-button {
-            margin: 0 0 5vh 0;
+            width: 90vw;
+        }
+
+        .results-table-container{
             width: 90vw;
         }
     }
