@@ -1,3 +1,5 @@
+@import "../../../colors.scss";
+
 .countries-container {
     
     align-items: center;
@@ -5,7 +7,7 @@
     flex-direction: column;
 
     .countries-table-container {
-        border: 1px solid lightgray;
+        border: 1px solid $telq-lightgray;
         height: 70vh;
         overflow-y: scroll;
         width: 40vw;
@@ -16,7 +18,7 @@
         }
 
         .colored{
-            background-color: lightgray;
+            background-color: $telq-lightgray;
         }
 
         mat-header-cell, mat-cell {

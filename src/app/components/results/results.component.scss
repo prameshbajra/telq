@@ -1,3 +1,5 @@
+@import "../../../colors.scss";
+
 @keyframes spinner {
     to {transform: rotate(360deg);}
 }
@@ -18,11 +20,11 @@
     }
 
     .red{
-        color: red;
+        color: $telq-red;
     }
 
     .green{
-        color: green;
+        color: $telq-green;
     }
     
     .spinner:before {
@@ -36,8 +38,8 @@
         margin-top: -10px;
         margin-left: -10px;
         border-radius: 50%;
-        border: 2px solid #ffffff;
-        border-top-color: #000000;
+        border: 2px solid $telq-white;
+        border-top-color: $telq-black;
         animation: spinner .8s linear infinite;
     }
 }
