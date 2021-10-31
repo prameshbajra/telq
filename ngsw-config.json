@@ -12,6 +12,9 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+            "https://interview.telqtele.com/**"
         ]
       }
     },
@@ -26,5 +29,20 @@
         ]
       }
     }
-  ]
+],
+"dataGroups": [
+    {
+        "name": "telq",
+        "urls": [
+            "https://interview.telqtele.com/test",
+            "https://interview.telqtele.com/countries"
+        ],
+        "cacheConfig": {
+            "strategy": "freshness",
+            "maxAge": "1h",
+            "maxSize": 20,
+            "timeout": "5s"
+        }
+    }
+]
 }
