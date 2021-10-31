@@ -16,7 +16,32 @@
     }
 
     .results-table-container{
+        border: 1px solid $telq-lightgray;
+        height: 67vh;
+        overflow-y: auto;
         width: 40vw;
+
+        .empty-message {
+            color: $telq-lightgray;
+            margin: 20vh;
+            text-align: center;
+
+            .mat-icon{
+                font-size: 3em;
+                width: 100%;
+            }
+
+        }
+
+        mat-header-cell, mat-cell {
+            cursor: pointer;
+            justify-content: space-evenly;
+        }
+
+        mat-header-cell{
+            font-size: 1em;
+            font-weight: bold;
+        }
     }
 
     .red{

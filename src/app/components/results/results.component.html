@@ -1,21 +1,27 @@
 <div class="results-container">
     <button mat-raised-button color="primary" [class.spinner]="loading" [disabled]="loading" (click)="onTestClick()">Send Tests</button>
-    <div class="results-table-container">
-        <!-- TODO: Page size to be made resonable here ... -->
-        <nz-table #countryTable [nzData]="countryResults" [nzShowPagination]="false" [nzFrontPagination]="false" [nzBordered]="true"
-            [nzScroll]="{ y: '60vh', x:'90%' }">
-            <thead>
-                <tr>
-                    <th>Country Name</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of countryTable.data">
-                    <td>{{data.countryName}}</td>
-                    <td [ngClass]="getClass(data.testStatus)">{{data.testStatus}}</td>
-                </tr>
-            </tbody>
-        </nz-table>
+    <div class="results-table-container mat-elevation-z0">
+        <mat-table #table [dataSource]="countryResults">
+            <div class="empty-message" *matNoDataRow>
+                <mat-icon>public_off</mat-icon>
+                <p>
+                    No tests runs. <br> Select some countries and click "Send Tests" to see the status.
+                </p>
+            </div>
+            <ng-container matColumnDef="countryName">
+                <mat-header-cell *matHeaderCellDef>Country Name</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    {{element.countryName}}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                <mat-cell [ngClass]="getClass(element.testStatus)" *matCellDef="let element"> {{element.testStatus}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="['countryName','status']; sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: ['countryName','status'];"></mat-row>
+        </mat-table>
     </div>
 </div>

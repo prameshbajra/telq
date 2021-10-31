@@ -9,12 +9,19 @@
     .countries-table-container {
         border: 1px solid $telq-lightgray;
         height: 70vh;
-        overflow-y: scroll;
+        overflow-y: auto;
         width: 40vw;
 
         .empty-message {
-            margin: 10vh;
+            color: $telq-lightgray;
+            margin: 20vh;
             text-align: center;
+
+            .mat-icon{
+                font-size: 3em;
+                width: 100%;
+            }
+
         }
 
         .colored{
@@ -24,6 +31,11 @@
         mat-header-cell, mat-cell {
             cursor: pointer;
             justify-content: space-evenly;
+        }
+        
+        mat-header-cell{
+            font-size: 1em;
+            font-weight: bold;
         }
     }
 }

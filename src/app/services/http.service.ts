@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { RequestCountry } from '../models/requestCountry';
 
 @Injectable({
@@ -14,6 +14,7 @@ export class HttpService {
     constructor(private http: HttpClient) { }
 
     public getCountriesList(): Observable<any> {
+        return of([]);
         return this.http.get(`${this.BACKEND_URL}countries`);
     }
 

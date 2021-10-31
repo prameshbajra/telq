@@ -2,3 +2,30 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* I hate scroll bars that windows provides hence changing the default scroll bar ...*/
+::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+    cursor: pointer;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px lightgray;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: grey;
+    cursor: pointer;
+  }
