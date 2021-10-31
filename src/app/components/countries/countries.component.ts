@@ -50,8 +50,17 @@ export class CountriesComponent implements OnInit {
         })
     }
 
+    private stopEventBubbling(event: any): void {
+        try {
+            event.preventDefault();
+        } catch (error) {
+            // Some events like matcheckbox event does not have a preventDetault menthod ... 
+            console.error("This is intentional: ", error);
+        }
+    }
+
     public onCheckBoxChanged(event: any, element: Country): void {
-        event.preventDefault();
+        this.stopEventBubbling(event);
         element.checked = !element.checked;
         if (element.checked) {
             this.listOfSelectedCountries.push(element);

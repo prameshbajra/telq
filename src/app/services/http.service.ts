@@ -14,7 +14,6 @@ export class HttpService {
     constructor(private http: HttpClient) { }
 
     public getCountriesList(): Observable<any> {
-        return of([]);
         return this.http.get(`${this.BACKEND_URL}countries`);
     }
 
